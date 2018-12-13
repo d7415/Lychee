@@ -29,7 +29,7 @@ final class Album {
 		if ($use_existing) {
 			$exists = $this->exists($title);
 			if ($exists!==false) {
-				return exists;
+				return $exists;
 			}
 		}
 
@@ -709,7 +709,7 @@ final class Album {
 	 */
 	private function exists($title) {
 
-		$query = Database::prepare(Database::get(), "SELECT id from FROM ? WHERE title = '?' LIMIT 1", array(LYCHEE_TABLE_ALBUMS, $title));
+		$query = Database::prepare(Database::get(), "SELECT id FROM ? WHERE title = '?' LIMIT 1", array(LYCHEE_TABLE_ALBUMS, $title));
 
 		$result = Database::execute(Database::get(), $query, __METHOD__, __LINE__);
 
@@ -719,7 +719,7 @@ final class Album {
 
 			$result = $result->fetch_object();
 
-			return $result->id,
+			return $result->id;
 
 		}
 
