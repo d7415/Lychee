@@ -439,7 +439,6 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/2619582?v=4",
       "profile": "https://github.com/expiredemulsion",
       "contributions": [
-        "translation",
         "bug"
       ]
     },
@@ -567,6 +566,60 @@
       "profile": "https://github.com/yuukieve",
       "contributions": [
         "bug"
+      ]
+    },
+    {
+      "login": "SerenaButler",
+      "name": "Dirk",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/35893306?v=4",
+      "profile": "https://github.com/SerenaButler",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "corrilan",
+      "name": "corrilan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/33758018?v=4",
+      "profile": "https://github.com/corrilan",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "Himself132",
+      "name": "Himself132",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6908830?v=4",
+      "profile": "https://github.com/Himself132",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "HorlogeSkynet",
+      "name": "Samuel FORESTIER",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5331869?v=4",
+      "profile": "http://git.forestier.app/HorlogeSkynet",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "dswarbrick",
+      "name": "Daniel Swarbrick",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1667905?v=4",
+      "profile": "https://github.com/dswarbrick",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "johnnypark",
+      "name": "Jonas",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/677127?v=4",
+      "profile": "https://github.com/johnnypark",
+      "contributions": [
+        "code"
       ]
     }
   ]

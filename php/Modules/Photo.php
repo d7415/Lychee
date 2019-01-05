@@ -275,10 +275,10 @@ final class Photo {
 			}
 
 			// Create Medium
-			if (Photo::createMedium($path, $photo_name, $info['type'], $info['width'], $info['height'])) $medium = 1;
+			if (Photo::createMedium($path, $photo_name, $info['type'], $info['width'], $info['height'], Settings::get()['medium_max_width'], Settings::get()['medium_max_height'])) $medium = 1;
 			else $medium = 0;
 			// Create Small
-			if (Photo::createMedium($path, $photo_name, $info['type'], $info['width'], $info['height'], 0, 360, 'SMALL')) $small = 1;
+			if (Photo::createMedium($path, $photo_name, $info['type'], $info['width'], $info['height'], Settings::get()['small_max_width'], Settings::get()['small_max_height'], 'SMALL')) $small = 1;
 			else $small = 0;
 		}
 
@@ -577,7 +577,7 @@ final class Photo {
 
 		}
 
-		if($error)
+		if($error || !Settings::hasImagick())
 		{
 			Log::notice(Database::get(), __METHOD__, __LINE__, 'Picture is big enough for resize, try with GD!');
 			// failed with imagick, try with GD
@@ -820,9 +820,31 @@ final class Photo {
 		$photo['focal'] 		= isset($data['focal']) ? $data['focal'] : '';
 		$photo['lens']   		= isset($data['lens']) ? $data['lens'] : ''; // isset should not be needed
 
-		if(substr($photo['shutter'], -4) == '/1 s'){
-			$photo['shutter'] = substr($photo['shutter'], 0, -4). ' s';
+
+		if($photo['shutter'] != '' && substr($photo['shutter'], 0,2) != '1/'){
+
+			// this should fix it... hopefully.
+			preg_match('/(\d+)\/(\d+) s/', $photo['shutter'], $matches);
+			$a = intval($matches[1]);
+			$b = intval($matches[2]);
+			$gcd = gcd($a,$b);
+			$a = $a / $gcd;
+			$b = $b / $gcd;
+			if ($a == 1)
+			{
+				$photo['shutter'] = '1/'. $b . ' s';
+			}
+			else
+			{
+				$photo['shutter'] = ($a / $b) . ' s';
+			}
+
 		}
+		if ($photo['shutter'] == '1/1 s')
+	    {
+		    $photo['shutter'] = '1 s';
+	    }
+
 		$photo['license'] = Settings::get()['default_license'];
 		if (isset($data['license']))
 		{
@@ -1075,7 +1097,14 @@ final class Photo {
 			}
 
 			// Takestamp
-			if (!empty($exif['DateTimeOriginal'])) $return['takestamp'] = strtotime($exif['DateTimeOriginal']);
+			if (!empty($exif['DateTimeOriginal']))
+            {
+				$return['takestamp'] = strtotime($exif['DateTimeOriginal']);
+            }
+			if ($return['takestamp'] > 2147483647 || $return['takestamp'] < -2147483647) {
+                Log::notice(Database::get(), __METHOD__, __LINE__, 'takestamp = '.$info['takestamp'].' = '.$exif['DateTimeOriginal'].' -- is out of range, fixing it to 0.');
+                $return['takestamp'] = 0;
+            }
 
 			if (!empty($exif['LensInfo'])) $return['lens'] = trim($exif['LensInfo']);
 
