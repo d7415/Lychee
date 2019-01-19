@@ -621,6 +621,60 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "capulo",
+      "name": "capulo",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25885970?v=4",
+      "profile": "https://github.com/capulo",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "ezek1el",
+      "name": "ezek1el",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15878321?v=4",
+      "profile": "https://github.com/ezek1el",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "anroth76",
+      "name": "anroth76",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/46268227?v=4",
+      "profile": "https://github.com/anroth76",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Gabbalo",
+      "name": "Gabriel",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5897819?v=4",
+      "profile": "https://loh.re",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "dbw3",
+      "name": "dbw3",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9830202?v=4",
+      "profile": "https://github.com/dbw3",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "nemobis",
+      "name": "nemobis",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/901528?v=4",
+      "profile": "https://federicoleva.eu",
+      "contributions": [
+        "doc"
+      ]
     }
   ]
 }
